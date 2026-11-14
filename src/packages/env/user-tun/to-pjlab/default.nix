@@ -40,9 +40,9 @@
           - "127.0.0.1:52495:5901"
           - "127.0.0.1:59553:1080"
         environment:
-          URLWIN: "1"
           PASSWORD: "1"
           FAKE_HWADDR: "BE:D3:BD:24:71:D8"
+          PING_ADDR: "h.pjlab.org.cn"
         devices:
           - "/dev/net/tun"
         cap_add:
