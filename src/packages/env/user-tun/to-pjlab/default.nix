@@ -4,20 +4,6 @@
   lib,
   ...
 }:
-let
-  # LD_PRELOAD shim：让 pasta 出站强制绑到物理网卡，绕开宿主 fake-ip tun。
-  force-bind = pkgs.stdenv.mkDerivation {
-    name = "force-bind";
-    dontUnpack = true;
-    buildPhase = ''
-      $CC -shared -fPIC -O2 -o force-bind.so ${./force-bind.c}
-    '';
-    installPhase = ''
-      mkdir -p $out/lib
-      cp force-bind.so $out/lib/
-    '';
-  };
-in
 {
   home-manager-mihomo-manager.instances.to-pjlab = {
     port = 44911;
@@ -28,7 +14,7 @@ in
     (pkgs.writeShellApplication {
       name = "my-proxy-to-pjlab-atrust-up";
       text = ''
-        LD_PRELOAD="${force-bind}/lib/force-bind.so" ${lib.escapeShellArgs [
+        ${lib.escapeShellArgs [
           "${config.my.packages.podman-compose}/bin/podman-compose"
           "-f"
           "${config.xdg.configHome}/pjlab-atrust/compose.yml"
@@ -49,6 +35,7 @@ in
         image: docker.io/hagb/docker-atrust
         hostname: pjlab-atrust
         restart: unless-stopped
+        network_mode: "pasta:--outbound-if4,wlp2s0,--outbound-if6,wlp2s0"
         ports:
           - "127.0.0.1:52495:5901"
           - "127.0.0.1:59553:1080"
