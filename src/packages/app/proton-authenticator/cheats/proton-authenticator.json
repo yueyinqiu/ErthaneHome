@@ -1,0 +1,10 @@
+{
+  "Command": [
+    {
+      "$type": "CommandTokenLiteral",
+      "Value": "proton-authenticator"
+    }
+  ],
+  "Description": "proton; authenticator; 2fa; otp; totp",
+  "ExtraArguments": false
+}

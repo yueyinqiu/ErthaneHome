@@ -1,0 +1,10 @@
+{
+  "Command": [
+    {
+      "$type": "CommandTokenLiteral",
+      "Value": "thunderbird"
+    }
+  ],
+  "Description": "thunderbird; email; mail",
+  "ExtraArguments": false
+}
