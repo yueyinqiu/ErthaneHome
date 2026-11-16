@@ -31,6 +31,7 @@ let
 
           bind.ro = [
             "/etc"
+            "/usr"
             "/run/current-system"
             (sloth.concat' sloth.homeDir "/.nix-profile")
           ];
