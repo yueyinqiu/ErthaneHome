@@ -1,8 +1,47 @@
-{ config, ... }: {
-  my.packages.git = config.programs.git.package;
+{
+  config,
+  nixpak,
+  pkgs,
+  ...
+}:
+let
+  app = config.my.lib.mkNixPak {
+    config =
+      { sloth, ... }:
+      {
+        imports = [ nixpak.nixpakModules.network ];
+
+        app.package = pkgs.git;
+        app.binPath = "bin/git";
+
+        dbus.enable = false;
+
+        bubblewrap = {
+          sharePgid = true;
+
+          bind.rw = [
+            [
+              (sloth.mkdir sloth.appDataDir)
+              sloth.homeDir
+            ]
+            config.my.paths.s
+          ];
+
+          bind.ro = [
+            "/etc"
+            (sloth.concat' sloth.homeDir "/.ssh")
+            (sloth.concat' sloth.xdgConfigHome "/git")
+          ];
+        };
+      };
+  };
+in
+{
+  my.packages.git = app.config.env;
 
   programs.git = {
     enable = true;
+    package = config.my.packages.git;
     settings = {
       user = {
         name = "yueyinqiu";
@@ -15,5 +54,4 @@
     };
     lfs.enable = true;
   };
-
 }
