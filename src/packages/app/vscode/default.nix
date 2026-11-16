@@ -26,6 +26,7 @@ let
               sloth.homeDir
             ]
             config.my.paths.s
+            (sloth.concat' sloth.xdgConfigHome "/Code")
           ];
 
           bind.ro = [
