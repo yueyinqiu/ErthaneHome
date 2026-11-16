@@ -19,8 +19,8 @@ let
         app.binPath = "bin/code";
 
         bubblewrap = {
-          dieWithParent = true;
-
+          # dieWithParent = true;
+          tmpfs = ["/tmp"];
           bind.rw = [
             [
               (sloth.mkdir sloth.appDataDir)
