@@ -59,6 +59,7 @@
 
       ${config.my.packages.niri}/bin/niri msg action spawn -- ${config.my.packages.qq}/bin/qq
       ${config.my.packages.niri}/bin/niri msg action spawn -- ${config.my.packages.wechat}/bin/wechat
+      ${config.my.packages.niri}/bin/niri msg action spawn -- ${config.my.packages.thunderbird}/bin/thunderbird
     '';
     executable = true;
   };
