@@ -29,7 +29,6 @@ let
 
           bind.ro = [
             "/etc"
-            (sloth.concat' sloth.homeDir "/.ssh")
             (sloth.concat' sloth.xdgConfigHome "/git")
           ];
         };
