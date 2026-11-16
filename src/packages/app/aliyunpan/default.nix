@@ -1,22 +1,39 @@
 {
-  pkgs,
   config,
-  lib,
+  nixpak,
+  pkgs,
   ...
 }:
 let
-  aliyunpan = pkgs.symlinkJoin {
-    name = "aliyunpan";
-    paths = [ pkgs.aliyunpan ];
-    buildInputs = [ pkgs.makeWrapper ];
-    postBuild = ''
-      wrapProgram $out/bin/aliyunpan \
-        --set-default ALIYUNPAN_CONFIG_DIR ${lib.escapeShellArg "${config.xdg.configHome}/aliyunpan"}
-    '';
+  app = config.my.lib.mkNixPak {
+    config =
+      { sloth, ... }:
+      {
+        imports = [ nixpak.nixpakModules.network ];
+
+        app.package = pkgs.aliyunpan;
+        app.binPath = "bin/aliyunpan";
+
+        dbus.enable = false;
+
+        bubblewrap = {
+          sharePgid = true;
+
+          bind.rw = [
+            [
+              (sloth.mkdir sloth.appDataDir)
+              sloth.homeDir
+            ]
+            config.my.paths.s
+          ];
+
+          bind.ro = [ "/etc" ];
+        };
+      };
   };
 in
 {
-  my.packages.aliyunpan = aliyunpan;
+  my.packages.aliyunpan = app.config.env;
 
   home.packages = [
     config.my.packages.aliyunpan
