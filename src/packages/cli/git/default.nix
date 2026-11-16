@@ -29,6 +29,8 @@ let
 
           bind.ro = [
             "/etc"
+            "/run/current-system"
+            (sloth.concat' sloth.homeDir "/.nix-profile")
             (sloth.concat' sloth.xdgConfigHome "/git")
           ];
         };
