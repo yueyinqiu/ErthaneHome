@@ -36,6 +36,7 @@ let
             (sloth.concat' sloth.homeDir "/.ssh")
             (sloth.concat' sloth.xdgConfigHome "/git")
             (sloth.envOr "SSH_AUTH_SOCK" "/dev/null")
+            (sloth.envOr "VSCODE_GIT_IPC_HANDLE" "/dev/null")
           ];
         };
       };
