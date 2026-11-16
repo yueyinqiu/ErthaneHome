@@ -1,4 +1,4 @@
-{ ... }: {
+{ config, lib, ... }: {
   wayland.windowManager.niri.settings.binds = {
     # --- Overview / help / quit ---
     "Mod+Shift+Alt+Ctrl+H" = {
@@ -40,21 +40,11 @@
         "hotkey-overlay-title" = "Terminal";
       };
       "spawn-sh" = [
-        ''
-          ghostty --working-directory="$HOME"
-        ''
-      ];
-    };
-    "Mod+Shift+W" = {
-      _props = {
-        "hotkey-overlay-title" = null;
-      };
-      "spawn-sh" = [
-        ''
-          ghostty --working-directory="$HOME" \
-            -e expect -c \
-            'spawn bash; send -- "exec "; interact'
-        ''
+        lib.escapeShellArgs
+        [
+          "ghostty"
+          "--working-directory=${config.my.paths.s}"
+        ]
       ];
     };
 
