@@ -12,10 +12,6 @@ let
         app.package = pkgs.thunderbird;
         app.binPath = "bin/thunderbird";
 
-        # dbus.policies = {
-        #   "org.mozilla.thunderbird.*" = "own";
-        # };
-
         bubblewrap = {
           dieWithParent = true;
 
