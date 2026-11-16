@@ -35,6 +35,7 @@ let
             (sloth.concat' sloth.homeDir "/.nix-profile")
             (sloth.concat' sloth.homeDir "/.ssh")
             (sloth.concat' sloth.xdgConfigHome "/git")
+            (sloth.envOr "SSH_AUTH_SOCK" "/dev/null")
           ];
         };
       };
