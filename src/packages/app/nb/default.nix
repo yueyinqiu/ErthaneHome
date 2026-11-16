@@ -24,6 +24,8 @@ let
             "/tmp"
           ];
 
+          env.PATH = sloth.concat' "${pkgs.git}/bin:" (sloth.env "PATH");
+
           bind.rw = [
             [
               (sloth.mkdir sloth.appDataDir)
