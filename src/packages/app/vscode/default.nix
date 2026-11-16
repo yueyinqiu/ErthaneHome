@@ -19,7 +19,6 @@ let
         app.binPath = "bin/code";
 
         bubblewrap = {
-          # dieWithParent = true;
           tmpfs = ["/tmp"];
           bind.rw = [
             [
