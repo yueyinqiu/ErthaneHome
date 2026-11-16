@@ -40,11 +40,10 @@
         "hotkey-overlay-title" = "Terminal";
       };
       "spawn-sh" = [
-        lib.escapeShellArgs
-        [
+        (lib.escapeShellArgs [
           "ghostty"
           "--working-directory=${config.my.paths.s}"
-        ]
+        ])
       ];
     };
 
