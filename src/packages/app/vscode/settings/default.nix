@@ -1,8 +1,6 @@
 { ... }:
 {
   programs.vscode.profiles.default = {
-    mutableUserSettings = true;
-
     userSettings = {
       "workbench.colorTheme" = "Visual Studio 2019 Dark (Extracted From C# Extension)";
       "editor.semanticTokenColorCustomizations" = {
