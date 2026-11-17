@@ -20,6 +20,9 @@ let
 
         bubblewrap = {
           tmpfs = ["/tmp"];
+          env = {
+            BROWSER = "gio open";
+          };
           bind.rw = [
             [
               (sloth.mkdir sloth.appDataDir)
