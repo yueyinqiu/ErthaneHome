@@ -15,15 +15,18 @@ let
       # the read-only mounts (/nix, /etc, /usr, the nix profiles) survive
       # because bwrap binds non-recursively.
       allowWrite = [ "/" ];
-      # The two deny lists protect different things and neither covers both:
-      #   denyRead  -> bash, as an empty tmpfs (the tools ignore it unless a
-      #                named sandbox profile is selected)
-      #   denyWrite -> read/write/edit tools, in process. For bash it is dropped
-      #                by an upstream bug: with allowWrite "/" the containment
-      #                check compares against "//" and skips the mask. The
-      #                tmpfs above is what actually stops bash.
+      # The two deny lists protect different directions:
+      #   denyRead  -> bash gets an empty tmpfs over the path (hard read-block);
+      #                read/edit tools only enforce it under a named profile.
+      #   denyWrite -> hard write-block for read/write/edit tools; for bash it
+      #                is a ro-bind mask, correctly applied since 0.9.1 (the
+      #                old allowWrite "/" containment built "//" and skipped it).
       denyRead = [ "~/.pi/agent" ];
       denyWrite = [ "~/.pi/agent" ];
+      # Explicit /dev/ device passthrough (0.9.3+); the outer nixpak sandbox
+      # dev-binds /dev/kvm, and this re-exposes it inside pi-sandbox's own
+      # `--dev /dev` (which otherwise hides it).
+      allowDevices = [ "/dev/kvm" ];
     };
   };
 in
