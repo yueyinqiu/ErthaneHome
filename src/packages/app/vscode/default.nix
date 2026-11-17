@@ -19,7 +19,10 @@ let
         app.binPath = "bin/code";
 
         bubblewrap = {
-          tmpfs = ["/tmp"];
+          tmpfs = [
+            "/tmp"
+            "/etc/ssh"
+          ];
           env = {
             BROWSER = "gio open";
           };
