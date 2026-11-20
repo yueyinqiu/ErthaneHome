@@ -39,6 +39,7 @@ let
             "/etc"
             "/usr"
             "/bin"
+            "/nix"
             "/run/current-system"
             (sloth.concat' sloth.homeDir "/.nix-profile")
             (sloth.concat' sloth.homeDir "/.ssh")
