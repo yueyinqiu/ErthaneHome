@@ -5,6 +5,7 @@
       "editor.autoClosingQuotes" = "languageDefined";
       "editor.autoIndent" = "advanced";
     };
+    "python.defaultInterpreterPath" = "python";
     "python.analysis.autoFormatStrings" = true;
     "python.analysis.autoImportCompletions" = true;
     "python.analysis.diagnosticMode" = "workspace";

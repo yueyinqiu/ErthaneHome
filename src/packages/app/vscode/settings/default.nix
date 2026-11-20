@@ -41,6 +41,7 @@
       "files.hotExit" = "off";
 
       "git.autofetch" = true;
+      "git.openRepositoryInParentFolders" = "always";
       "git.confirmSync" = false;
       "git.decorations.enabled" = false;
       "git.enableSmartCommit" = true;
