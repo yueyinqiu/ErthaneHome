@@ -439,21 +439,21 @@
         "type": "github"
       }
     },
-    "nix-daemon-proxy": {
+    "nix-daemon-proxy-switchboard": {
       "inputs": {
-        "nixpkgs": "nixpkgs_10"
+        "proxy-switchboard": "proxy-switchboard"
       },
       "locked": {
-        "lastModified": 1790862462,
-        "narHash": "sha256-+b3hl+bIFtk8+8VM2Qqu20pSM/+b87uxUscXgvQZe5s=",
+        "lastModified": 1795163765,
+        "narHash": "sha256-18KrTZEQtExS+F3dMCpImQKoCjQI6TIYxsCgharKaMw=",
         "owner": "yueyinqiu",
-        "repo": "NixDaemonProxy-Nix",
-        "rev": "b7e15f0c1740a8f51433f0592b70654798b1eaa2",
+        "repo": "NixDaemonProxySwitchboard",
+        "rev": "ca2a7f42f6ea1888fa7946294bde0fc7da67403d",
         "type": "github"
       },
       "original": {
         "owner": "yueyinqiu",
-        "repo": "NixDaemonProxy-Nix",
+        "repo": "NixDaemonProxySwitchboard",
         "type": "github"
       }
     },
@@ -580,11 +580,11 @@
     },
     "nixpkgs_10": {
       "locked": {
-        "lastModified": 1790463110,
-        "narHash": "sha256-hKlVl12B1dF0Q5vd9dY3lIJM5mFGWYSlXwSLAqHZ1+s=",
+        "lastModified": 1794890597,
+        "narHash": "sha256-lME2lHoDHAaSHP3/okgiVoJ0icVEvsQH8LeU3We7tcc=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "e158d9ed9b51c98974c5e66e1ba1c9e0255fecaa",
+        "rev": "04906337b6d53e8bb0eaf0470ae9f070a4d4eb55",
         "type": "github"
       },
       "original": {
@@ -783,17 +783,17 @@
     "os": {
       "inputs": {
         "import-tree": "import-tree_3",
-        "nix-daemon-proxy": "nix-daemon-proxy",
+        "nix-daemon-proxy-switchboard": "nix-daemon-proxy-switchboard",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_12",
         "user-tun": "user-tun"
       },
       "locked": {
-        "lastModified": 1794224111,
-        "narHash": "sha256-4xWWQeZG8PMLM25zJb29xGkcRQZ5G/6MZb3B/ZRJcVQ=",
+        "lastModified": 1795169133,
+        "narHash": "sha256-AupBnnW4tnCR8ZfIoVujk+JULA2O0skd4zdwgklANZI=",
         "owner": "yueyinqiu",
         "repo": "NixosErthane",
-        "rev": "e11cd70452d703a7f342beab7b97fbd8547ee2ca",
+        "rev": "cb2b4c616c0a6494cd5112b4a03456de75640c8e",
         "type": "github"
       },
       "original": {
@@ -829,6 +829,24 @@
       "original": {
         "owner": "Swarsel",
         "repo": "pedantix",
+        "type": "github"
+      }
+    },
+    "proxy-switchboard": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_10"
+      },
+      "locked": {
+        "lastModified": 1795103358,
+        "narHash": "sha256-t2b04J+ko4CinlhlK0rafdvA3K33UuXmKOHez5plHx0=",
+        "owner": "yueyinqiu",
+        "repo": "ProxySwitchboard-Nix",
+        "rev": "ddaeda4f548d6cc73bd7f7df87a30c0a3b9b33d9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "yueyinqiu",
+        "repo": "ProxySwitchboard-Nix",
         "type": "github"
       }
     },
