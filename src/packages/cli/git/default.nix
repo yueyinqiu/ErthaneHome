@@ -51,7 +51,7 @@ in
     settings = {
       user = {
         name = "yueyinqiu";
-        email = "yueyinqiu@outlook.com";
+        email = "me@yueyinqiu.top";
       };
       pull.rebase = true;
       alias = {
