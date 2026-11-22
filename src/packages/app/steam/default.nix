@@ -12,10 +12,7 @@ let
         app.package = pkgs.steam;
         app.binPath = "bin/steam";
 
-        dbus.policies = {
-          "com.steampowered.*" = "own";
-          "com.steampowered.PressureVessel.*" = "own";
-        };
+        dbus.enable = false;
 
         bubblewrap = {
           dieWithParent = true;
