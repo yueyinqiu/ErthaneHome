@@ -19,7 +19,10 @@ let
         bubblewrap = {
           sharePgid = true;
 
-          tmpfs = [ "/tmp" ];
+          tmpfs = [ 
+            "/tmp" 
+            "/etc/ssh"
+          ];
 
           bind.dev = [ "/dev/kvm" ];
 
