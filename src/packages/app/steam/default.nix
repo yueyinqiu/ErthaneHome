@@ -18,7 +18,7 @@ let
 
         # SteamRT3 (pressure-vessel) 需要在宿主 PID/UTS 命名空间里运行，
         # 否则 re-exec 进 SteamRT runtime 时会卡死在 XOpenIM 之后。
-        # gpu.provider = "nixos";
+        gpu.provider = "nixos";
 
         bubblewrap = {
           dieWithParent = true;
