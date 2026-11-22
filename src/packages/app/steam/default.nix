@@ -1,4 +1,4 @@
-{ config, pkgs, nixpak, lib, ... }:
+{ config, pkgs, nixpak, ... }:
 let
   steam = config.my.lib.mkNixPak {
     config =
@@ -12,22 +12,12 @@ let
         app.package = pkgs.steam;
         app.binPath = "bin/steam";
 
-        dbus.policies = {
-          "com.steampowered.*" = "own";
-        };
-
-        # SteamRT3 (pressure-vessel) 需要在宿主 PID/UTS 命名空间里运行，
-        # 否则 re-exec 进 SteamRT runtime 时会卡死在 XOpenIM 之后。
-        gpu.provider = lib.mkForce "nixos";
+        dbus.enable = false;
 
         bubblewrap = {
           dieWithParent = true;
 
           shareIpc = true;
-
-          sharePid = true;
-
-          shareUts = true;
 
           tmpfs = [
             "/tmp"
@@ -41,6 +31,7 @@ let
               sloth.homeDir
             ]
             config.my.paths.s
+            (sloth.concat' sloth.runtimeDir "/bus")
           ];
 
           bind.ro = [
