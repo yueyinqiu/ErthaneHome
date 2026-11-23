@@ -11,8 +11,8 @@
   inputs = {
     import-tree.url = "github:denful/import-tree";
 
-    os.url = "github:yueyinqiu/NixosErthane";
-    nixpkgs.follows = "os/nixpkgs";
+    erthane.url = "github:yueyinqiu/Erthane";
+    nixpkgs.follows = "erthane/nixpkgs";
     NixVirt = {
       url = "github:AshleyYakeley/NixVirt/v0.6.0";
       inputs.nixpkgs.follows = "nixpkgs";
