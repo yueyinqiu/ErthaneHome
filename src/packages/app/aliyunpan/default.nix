@@ -22,7 +22,7 @@ let
           bind.rw = [
             [
               (sloth.mkdir sloth.appDataDir)
-              sloth.homeDir
+              config.home.homeDirectory
             ]
             config.my.paths.s
           ];

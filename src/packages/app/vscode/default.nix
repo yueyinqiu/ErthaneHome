@@ -29,10 +29,10 @@ let
           bind.rw = [
             [
               (sloth.mkdir sloth.appDataDir)
-              sloth.homeDir
+              config.home.homeDirectory
             ]
             config.my.paths.s
-            (sloth.concat' sloth.xdgConfigHome "/Code")
+            "${config.xdg.configHome}/Code"
           ];
 
           bind.ro = [
@@ -41,9 +41,9 @@ let
             "/bin"
             "/nix"
             "/run/current-system"
-            (sloth.concat' sloth.homeDir "/.nix-profile")
-            (sloth.concat' sloth.homeDir "/.ssh")
-            (sloth.concat' sloth.xdgConfigHome "/git")
+            "${config.home.homeDirectory}/.nix-profile"
+            "${config.home.homeDirectory}/.ssh"
+            "${config.xdg.configHome}/git"
             (sloth.envOr "SSH_AUTH_SOCK" "/dev/null")
           ];
         };

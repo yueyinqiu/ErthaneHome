@@ -27,7 +27,7 @@ let
           bind.dev = [ "/dev/kvm" ];
 
           bind.rw = [
-            (sloth.concat' sloth.homeDir "/.pi/agent")
+            "${config.home.homeDirectory}/.pi/agent"
             config.my.paths.s
           ];
 
@@ -37,10 +37,10 @@ let
             "/etc"
             "/bin"
             "/run/current-system"
-            (sloth.concat' sloth.xdgStateHome "/nix/profiles")
-            (sloth.concat' sloth.homeDir "/.nix-profile")
-            (sloth.concat' sloth.homeDir "/.ssh")
-            (sloth.concat' sloth.xdgConfigHome "/git")
+            "${config.xdg.stateHome}/nix/profiles"
+            "${config.home.homeDirectory}/.nix-profile"
+            "${config.home.homeDirectory}/.ssh"
+            "${config.xdg.configHome}/git"
           ];
 
           env = {

@@ -16,8 +16,8 @@ let
           dieWithParent = true;
 
           bind.ro = [
-            (sloth.concat' sloth.homeDir "/.nix-profile")
-            (sloth.concat' sloth.homeDir "/.local/state/nix/profiles")
+            "${config.home.homeDirectory}/.nix-profile"
+            "${config.xdg.stateHome}/nix/profiles"
           ];
 
           tmpfs = [
@@ -27,7 +27,7 @@ let
           bind.rw = [
             [
               (sloth.mkdir sloth.appDataDir)
-              sloth.homeDir
+              config.home.homeDirectory
             ]
             config.my.paths.s
           ];
