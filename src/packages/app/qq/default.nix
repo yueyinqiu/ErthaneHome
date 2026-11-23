@@ -33,6 +33,7 @@ let
 
           env = {
             NIXOS_OZONE_WL = "1";
+            TMPDIR = "/tmp";
           };
         };
       };

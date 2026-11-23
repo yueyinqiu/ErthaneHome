@@ -25,6 +25,7 @@ let
           ];
           env = {
             BROWSER = "gio open";
+            TMPDIR = "/tmp";
           };
           bind.rw = [
             [

@@ -22,6 +22,8 @@ let
           sharePgid = true;
           network = false;
 
+          tmpfs = [ "/tmp" ];
+
           bind.rw = [
             [
               (sloth.mkdir sloth.appDataDir)
@@ -31,6 +33,10 @@ let
           ];
 
           bind.ro = [ "/etc" ];
+
+          env = {
+            TMPDIR = "/tmp";
+          };
         };
       };
   };

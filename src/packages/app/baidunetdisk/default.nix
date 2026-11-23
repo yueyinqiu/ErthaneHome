@@ -20,9 +20,7 @@ let
             "${config.xdg.stateHome}/nix/profiles"
           ];
 
-          tmpfs = [
-            (sloth.envOr "TMPDIR" "/tmp")
-          ];
+          tmpfs = [ "/tmp" ];
 
           bind.rw = [
             [
@@ -31,6 +29,10 @@ let
             ]
             config.my.paths.s
           ];
+
+          env = {
+            TMPDIR = "/tmp";
+          };
         };
       };
   };

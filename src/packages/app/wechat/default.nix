@@ -34,6 +34,7 @@ let
           env = {
             QT_QPA_PLATFORM = "xcb";
             QT_IM_MODULE = "fcitx";
+            TMPDIR = "/tmp";
           };
         };
       };

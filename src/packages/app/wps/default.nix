@@ -25,6 +25,8 @@ let
         bubblewrap = {
           dieWithParent = true;
 
+          tmpfs = [ "/tmp" ];
+
           bind.rw = [
             [
               (sloth.mkdir sloth.appDataDir)
@@ -40,6 +42,7 @@ let
 
           env = {
             QT_IM_MODULE = "fcitx";
+            TMPDIR = "/tmp";
           };
         };
       };

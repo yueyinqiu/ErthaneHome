@@ -27,6 +27,8 @@ let
         bubblewrap = {
           dieWithParent = true;
 
+          tmpfs = [ "/tmp" ];
+
           bind.rw = [
             [
               (sloth.mkdir sloth.appDataDir)
@@ -38,6 +40,10 @@ let
           bind.ro = [
             "/etc"
           ];
+
+          env = {
+            TMPDIR = "/tmp";
+          };
         };
       };
   };

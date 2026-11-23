@@ -45,6 +45,7 @@ let
 
           env = {
             PI_CLIPBOARD_OSC52 = "1";
+            TMPDIR = "/tmp";
           };
         };
       };

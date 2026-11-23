@@ -38,6 +38,10 @@ let
             "/etc"
             "/run/opengl-driver-32"
           ];
+
+          env = {
+            TMPDIR = "/tmp";
+          };
         };
       };
   };

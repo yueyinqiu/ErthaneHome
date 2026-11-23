@@ -27,6 +27,8 @@ let
         bubblewrap = {
           dieWithParent = true;
 
+          tmpfs = [ "/tmp" ];
+
           bind.dev = [ "/dev" ];
 
           bind.ro = [
@@ -44,6 +46,7 @@ let
           env = {
             QT_IM_MODULE = "fcitx";
             EGL_PLATFORM = "x11";
+            TMPDIR = "/tmp";
           };
         };
       };

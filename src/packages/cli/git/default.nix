@@ -19,7 +19,7 @@ let
         bubblewrap = {
           sharePgid = true;
 
-          tmpfs = [ "/etc/ssh" ];
+          tmpfs = [ "/etc/ssh" "/tmp" ];
 
           bind.rw = [
             [
@@ -38,6 +38,10 @@ let
             (sloth.envOr "SSH_AUTH_SOCK" "/dev/null")
             (sloth.envOr "VSCODE_GIT_IPC_HANDLE" "/dev/null")
           ];
+
+          env = {
+            TMPDIR = "/tmp";
+          };
         };
       };
   };
