@@ -1,13 +1,30 @@
 # Host Instructions
 
-## NixOS Environment
+## NixOS & home-manager
 
-The host runs NixOS and uses home-manager for home directory management. When the user asks you to adjust configuration, you should modify the corresponding Nix files rather than placing files arbitrarily as you would on a regular distribution. You may also freely use `nix shell`/`nix run` to temporarily install packages when needed. Additionally, do not search or traverse `/` or `/nix/store`, as this will be extremely slow. If you need to find specific content, either figure out how to locate the exact path in the store directly, or fetch it over the network.
+- This host is declarative (NixOS + home-manager).
+- To change config (software, shell, services, dotfiles, `/etc`), edit the
+  relevant Nix files; never drop raw config into `/` or `~`.
+- Unsure which file owns it? Ask.
+- `nix shell`/`nix run` is fine for temporary tools.
 
-## Sandbox Environment
+## Filesystem
 
-You are in a sandboxed environment. The home directory, processes, and other things you see are not the real host's contents. If the user needs help inspecting related state, you may need to guide the user to run commands outside the sandbox rather than executing them inside the sandbox.
+- NEVER walk/search `/` or `/nix/store` (`find /`, `rg /`, `grep -r /`,
+  `ls -R /`, `locate`, `tree /`...). It hangs and wastes huge resources.
+- Scope every search to a known subdirectory.
+- For store paths, read the exact path directly (`readlink`, `nix path-info`);
+  otherwise fetch online.
+
+## Sandbox
+
+- You're in a sandbox: the fs is mostly snapshots/bind-mounts, not live host.
+- The project dir is real & writable; some paths (e.g. `~/.pi/agent`) are
+  read-only.
+- To touch host state outside the project, have the user run it themselves.
 
 ## Git
 
-Unless the user explicitly requests it, do not perform operations such as `git commit`/`git push`. In special cases—such as when a Nix flake requires files to be tracked before it can be built—operations like `git add` are permitted, but `commit`/`push` are still not allowed.
+- Never `commit`/`push` (or rewrite/publish history) unless asked.
+- `git add` is ok when needed (e.g. flake build), but never implies
+  commit/push.
