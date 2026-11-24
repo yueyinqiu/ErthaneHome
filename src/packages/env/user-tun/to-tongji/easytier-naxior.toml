@@ -4,7 +4,10 @@ listeners = []
 tcp_whitelist = []
 udp_whitelist = []
 
-socks5_proxy = "socks5://127.0.0.1:33320"
+[[port_forward]]
+bind_addr = "127.0.0.1:25820"
+dst_addr = "10.126.127.1:7890"
+proto = "tcp"
 
 [network_identity]
 network_name = "8ee862a3-8146-470b-9dba-242bfbb85b51"
