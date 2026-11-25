@@ -60,6 +60,10 @@ in
 
       settings = {
         "services.sync.prefs.sync.browser.link.open_newwindow.override.external" = true;
+        "services.sync.prefs.sync.browser.aboutConfig.showWarning" = true;
+        "services.sync.prefs.sync.browser.uiCustomization.state" = true;
+        "services.sync.prefs.sync.browser.toolbars.bookmarks.visibility" = true;
+        "services.sync.prefs.sync.browser.tabs.loadBookmarksInTabs" = true;
       };
     };
   };
