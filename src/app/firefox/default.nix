@@ -28,6 +28,7 @@ let
               (sloth.mkdir sloth.appDataDir)
               config.home.homeDirectory
             ]
+            "${config.xdg.configHome}/mozilla/firefox"
             config.my.paths.s
           ];
 
@@ -48,6 +49,20 @@ in
   programs.firefox = {
     enable = true;
     package = config.my.packages.firefox;
+
+    profiles.default = {
+      isDefault = true;
+
+      search = {
+        default = "bing";
+        privateDefault = "bing";
+        force = true;
+      };
+
+      settings = {
+        "services.sync.prefs.sync.browser.link.open_newwindow.override.external" = true;
+      };
+    };
   };
 
   home.packages = [
