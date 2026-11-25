@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 {
   programs.vscode.profiles.default = {
     userSettings = {
@@ -39,7 +39,11 @@
       "files.autoSave" = "afterDelay";
       "files.autoSaveWorkspaceFilesOnly" = true;
       "files.hotExit" = "off";
+
       "files.enableTrash" = false;
+
+      "files.simpleDialog.enable" = true;
+      "files.dialog.defaultPath" = config.my.paths.s;
 
       "git.autofetch" = true;
       "git.openRepositoryInParentFolders" = "always";
