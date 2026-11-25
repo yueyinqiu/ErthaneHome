@@ -1,6 +1,8 @@
 Rules:
   Prepend:
     - DOMAIN-SUFFIX,h.pjlab.org.cn,hmmm-to-pjlab
+    - DOMAIN,jump.pjlab.org.cn,hmmm-to-pjlab,no-resolve
+    - DOMAIN,login.pjlab.org.cn,hmmm-to-pjlab,no-resolve
   Delete: []
   Append: []
 Proxies:
