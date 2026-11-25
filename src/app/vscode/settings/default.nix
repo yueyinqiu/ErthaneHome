@@ -39,6 +39,7 @@
       "files.autoSave" = "afterDelay";
       "files.autoSaveWorkspaceFilesOnly" = true;
       "files.hotExit" = "off";
+      "files.enableTrash" = false;
 
       "git.autofetch" = true;
       "git.openRepositoryInParentFolders" = "always";
