@@ -19,6 +19,7 @@ let
         app.binPath = "bin/code";
 
         bubblewrap = {
+          shareIpc = true;
           tmpfs = [
             "/tmp"
             "/etc/ssh"
