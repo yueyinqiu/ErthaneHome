@@ -19,7 +19,6 @@ let
         app.binPath = "bin/code";
 
         bubblewrap = {
-          shareIpc = true;
           tmpfs = [
             "/tmp"
             "/etc/ssh"
@@ -28,7 +27,6 @@ let
             BROWSER = "gio open";
             TMPDIR = "/tmp";
           };
-          bind.dev = [ "/dev" ];
           bind.rw = [
             [
               (sloth.mkdir sloth.appDataDir)
