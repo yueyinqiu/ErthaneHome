@@ -65,6 +65,8 @@ in
         "services.sync.prefs.sync.browser.uiCustomization.state" = true;
         "services.sync.prefs.sync.browser.toolbars.bookmarks.visibility" = true;
         "services.sync.prefs.sync.browser.tabs.loadBookmarksInTabs" = true;
+        "services.sync.prefs.sync.browser.sessionstore.resume_from_crash" = true;
+        "services.sync.prefs.sync.browser.download.autohideButton" = true;
       };
     };
   };
