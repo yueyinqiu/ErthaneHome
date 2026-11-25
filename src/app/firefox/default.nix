@@ -56,7 +56,6 @@ in
       search = {
         default = "bing";
         privateDefault = "bing";
-        force = true;
       };
 
       settings = {
