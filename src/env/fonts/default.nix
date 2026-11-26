@@ -1,4 +1,4 @@
-{ pkgs, nix-wpsoffice-cn, ... }: {
+{ pkgs, nix-wpsoffice-cn, nix-ttf-ms-win11-auto, ... }: {
   home.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk-sans
@@ -7,6 +7,9 @@
     corefonts
     nix-wpsoffice-cn.chinese-fonts
     maple-mono.Normal-NF-CN
+    nix-ttf-ms-win11-auto.ttf-ms-win11-auto
+    nix-ttf-ms-win11-auto.ttf-ms-win11-auto-zh_cn
+    nix-ttf-ms-win11-auto.ttf-ms-win11-fod-auto-hans
 
     (pkgs.writeShellApplication {
       name = "my-fontconfig-find-family";
