@@ -24,8 +24,8 @@
     niri.url = "github:epireyn/niri-flake";
     
     flatpaks.url = "github:in-a-dil-emma/declarative-flatpak/latest";
-    nix-wpsoffice-cn.url = "github:Beriholic/nix-wpsoffice-cn";
-   nix-ttf-ms-win11-auto.url = "github:kugland/nix-ttf-ms-win11-auto";
+    nix-ttf-ms-win11-auto.url = "github:kugland/nix-ttf-ms-win11-auto";
+    chinese-fonts-overlay.url = "github:brsvh/chinese-fonts-overlay";
     mindustry-bin.url = "github:yueyinqiu/MindustryBinNix";
     nix-airgap.url = "github:bitbloxhub/nix-airgap";
     sub-nix.url = "github:yueyinqiu/SubNix";
@@ -46,8 +46,8 @@
           nixpkgs-master = inputs.nixpkgs-master.legacyPackages.${system};
           nixvirt = inputs.NixVirt;
           nur = inputs.nur.legacyPackages.${system}.repos;
-          nix-wpsoffice-cn = inputs.nix-wpsoffice-cn.packages.${system};
           nix-ttf-ms-win11-auto = inputs.nix-ttf-ms-win11-auto.packages.${system};
+          chinese-fonts-overlay = inputs.chinese-fonts-overlay.packages.${system};
           mindustry-bin = inputs.mindustry-bin.packages.${system};
           nix-airgap = inputs.nix-airgap.packages.${system};
           niri = inputs.niri.packages.${system};
