@@ -11,8 +11,7 @@
     nix-ttf-ms-win11-auto.ttf-ms-win11-auto-zh_cn
     nix-ttf-ms-win11-auto.ttf-ms-win11-fod-auto-hans
     
-    chinese-fonts-overlay.foundertype-gcu-fonts
-    chinese-fonts-overlay.hanwang-fonts
+    chinese-fonts-overlay.foundertype-fonts
     
     (pkgs.writeShellApplication {
       name = "my-fontconfig-find-family";
