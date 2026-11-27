@@ -17,12 +17,8 @@ let
         app.package = pkgs.umu-launcher;
         app.binPath = "bin/umu-run";
 
-        dbus.enable = false;
-
         bubblewrap = {
           dieWithParent = true;
-
-          shareIpc = true;
 
           tmpfs = [ "/tmp" ];
 
@@ -32,7 +28,6 @@ let
               config.home.homeDirectory
             ]
             config.my.paths.s
-            (sloth.concat' sloth.runtimeDir "/bus")
           ];
 
           bind.ro = [
