@@ -32,6 +32,7 @@ let
 
           bind.ro = [
             "/etc"
+            "/run/opengl-driver-32"
           ];
 
           env = {
