@@ -18,9 +18,11 @@ let
         app.binPath = "bin/umu-run";
 
         dbus.enable = false;
-        
+
         bubblewrap = {
           dieWithParent = true;
+
+          shareIpc = true;
 
           tmpfs = [ "/tmp" ];
 
