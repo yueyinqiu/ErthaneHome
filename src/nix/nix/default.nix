@@ -1,6 +1,7 @@
 {
   pkgs,
   config, 
+  lib,
   ...
 }:
 {
@@ -13,4 +14,15 @@
   nix.extraOptions = ''
     !include ${config.xdg.configHome}/nix/access-tokens.conf
   '';
+
+  home.packages = [
+    (pkgs.writeShellApplication {
+      name = "d";
+      text = lib.escapeShellArgs [
+        "exec"
+        "nix"
+        "develop"
+      ];
+    })
+  ];
 }
