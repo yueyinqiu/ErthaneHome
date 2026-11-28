@@ -19,14 +19,12 @@ let
         bubblewrap = {
           sharePgid = true;
 
-          tmpfs = [ 
-            "/tmp" 
-            "/etc/ssh"
-          ];
+          tmpfs = [ "/etc/ssh" ];
 
           bind.dev = [ "/dev/kvm" ];
 
           bind.rw = [
+            [ (sloth.mkdir (sloth.concat' "/tmp/nixpak-" sloth.instanceId)) "/tmp" ]
             "${config.home.homeDirectory}/.pi/agent"
             config.my.paths.s
           ];

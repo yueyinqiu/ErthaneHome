@@ -19,11 +19,10 @@ let
         bubblewrap = {
           dieWithParent = true;
 
-          tmpfs = [ "/tmp" ];
-
           bind.dev = [ "/dev" ];
 
           bind.rw = [
+            [ (sloth.mkdir (sloth.concat' "/tmp/nixpak-" sloth.instanceId)) "/tmp" ]
             [
               (sloth.mkdir sloth.appDataDir)
               config.home.homeDirectory

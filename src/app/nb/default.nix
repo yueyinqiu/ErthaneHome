@@ -19,15 +19,13 @@ let
         bubblewrap = {
           sharePgid = true;
 
-          tmpfs = [
-            "/etc/ssh"
-            "/tmp"
-          ];
+          tmpfs = [ "/etc/ssh" ];
 
           env.PATH = sloth.concat' "${pkgs.git}/bin:" (sloth.env "PATH");
           env.TMPDIR = "/tmp";
 
           bind.rw = [
+            [ (sloth.mkdir (sloth.concat' "/tmp/nixpak-" sloth.instanceId)) "/tmp" ]
             [
               (sloth.mkdir sloth.appDataDir)
               config.home.homeDirectory

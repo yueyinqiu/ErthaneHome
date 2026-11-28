@@ -19,15 +19,13 @@ let
         app.binPath = "bin/code";
 
         bubblewrap = {
-          tmpfs = [
-            "/tmp"
-            "/etc/ssh"
-          ];
+          tmpfs = [ "/etc/ssh" ];
           env = {
             BROWSER = "gio open";
             TMPDIR = "/tmp";
           };
           bind.rw = [
+            [ (sloth.mkdir (sloth.concat' "/tmp/nixpak-" sloth.instanceId)) "/tmp" ]
             [
               (sloth.mkdir sloth.appDataDir)
               config.home.homeDirectory
